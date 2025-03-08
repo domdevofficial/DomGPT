@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOMGPT Chatbot</title>
+    <title>DomGPT Chatbot</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -54,15 +54,12 @@
             font-size: 14px;
             color: gray;
         }
-
-        /* New styles for clickable area and message */
         #clickable-area {
             position: absolute;
             top: 10px;
             left: 10px;
             cursor: pointer;
         }
-
         #message {
             display: none;
             position: absolute;
@@ -105,16 +102,10 @@
             });
         }
 
-        // Toggle the visibility of the learning message
         document.getElementById('clickable-area').onclick = function() {
             let message = document.getElementById('message');
-            if (message.style.display === 'block') {
-                message.style.display = 'none'; // Hide if visible
-            } else {
-                message.style.display = 'block'; // Show if hidden
-            }
+            message.style.display = message.style.display === 'block' ? 'none' : 'block';
         };
     </script>
 </body>
 </html>
-
