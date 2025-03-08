@@ -1,0 +1,10 @@
+/* General Styling */body {    font-family: Arial, sans-serif;    background: linear-gradient(135deg, #4a90e2, #9013fe);    display: flex;    justify-content: center;    align-items: center;    height: 100vh;    margin: 0;}
+/* Popup Styling */.info-icon {    position: absolute;    top: 15px;    left: 15px;    font-size: 22px;    font-weight: bold;    color: white;    cursor: pointer;    background: red;    width: 30px;    height: 30px;    text-align: center;    border-radius: 50%;}
+.popup {    display: none;    position: fixed;    top: 50%;    left: 50%;    transform: translate(-50%, -50%);    background: white;    padding: 15px;    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);    border-radius: 5px;    text-align: center;}
+.popup button {    margin-top: 10px;    padding: 8px 12px;    background: #4a90e2;    color: white;    border: none;    cursor: pointer;}
+/* Form Styling */.container {    background: white;    padding: 30px;    width: 300px;    border-radius: 8px;    text-align: center;    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);}
+h2 {    margin-bottom: 15px;}
+input {    width: 100%;    padding: 10px;    margin: 10px 0;    border: 1px solid #ddd;    border-radius: 5px;}
+button {    width: 100%;    padding: 10px;    background: #4a90e2;    color: white;    border: none;    cursor: pointer;    border-radius: 5px;}
+p {    margin-top: 10px;}
+a {    color: #4a90e2;    cursor: pointer;}
