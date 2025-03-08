@@ -1,1 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOMGPT Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .chat-container {
+            width: 90%;
+            max-width: 400px;
+            margin: 20px auto;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        #chatbox {
+            height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .user, .bot {
+            padding: 5px;
+            margin: 5px 0;
+        }
+        .user { background: #d1e7fd; border-radius: 5px; }
+        .bot { background: #f1f1f1; border-radius: 5px; }
+        input, button {
+            width: calc(100% - 20px);
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: gray;
+        }
+
+        /* New styles for clickable area and message */
+        #clickable-area {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+        }
+
+        #message {
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 10px;
+            background: #fff;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <h2>DomGPT</h2>
+        <div id="chatbox"></div>
+        <input type="text" id="userInput" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+        <div class="footer">Powered by: DomDev</div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            let userInput = document.getElementById("userInput").value.trim();
+            let chatbox = document.getElementById("chatbox");
+
+            if (userInput === "") return;
+
+            chatbox.innerHTML += `<div class="user"><b>You:</b> ${userInput}</div>`;
+            document.getElementById("userInput").value = "";
+
+            fetch("chatbot.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: "message=" + encodeURIComponent(userInput)
+            })
+            .then(response => response.text())
+            .then(reply => {
+                chatbox.innerHTML += `<div class="bot"><b>DomGPT:</b> ${reply}</div>`;
+                chatbox.scrollTop = chatbox.scrollHeight;
+            });
+        }
+
+        // Toggle the visibility of the learning message
+        document.getElementById('clickable-area').onclick = function() {
+            let message = document.getElementById('message');
+            if (message.style.display === 'block') {
+                message.style.display = 'none'; // Hide if visible
+            } else {
+                message.style.display = 'block'; // Show if hidden
+            }
+        };
+    </script>
+</body>
+</html>
 
