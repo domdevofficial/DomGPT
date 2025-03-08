@@ -15,17 +15,17 @@ DomGPT is an **AI-powered chatbot** that learns from user interactions and provi
 
 ### 1️⃣ Clone the Repository  
 ```bash
-git clone https://github.com/your-repo/DomGPT.git
+git clone https://github.com/domdevofficial/DomGPT.git
 cd DomGPT
 ```  
 
 ### 2️⃣ Set Up the Database  
-- Import `domzkee_DomGpt.sql` into your MySQL database.  
+- Import `knowledge.sql` into your MySQL database.  
 - Configure the database credentials inside `config.php`.  
 
 ### 3️⃣ Run DomGPT  
 - Start a local server (XAMPP, LAMP, etc.).  
-- Open `index.php` in your browser.  
+- Open `index.html` in your browser.  
 
 ---
 
@@ -33,8 +33,6 @@ cd DomGPT
 
 ```
 /DomGPT
-│── /telegram          # Telegram bot integration
-│── /uploads           # Stores photobooth images
 │── chatbot.php        # AI chatbot processing
 │── config.php         # Database configuration
 │── index.php          # Chat interface
@@ -45,7 +43,7 @@ cd DomGPT
 
 ## 🎯 How to Use  
 
-1️⃣ Open `index.php` in a browser.  
+1️⃣ Open `index.html` in a browser.  
 2️⃣ Type a message, and DomGPT will respond.  
 3️⃣ If DomGPT doesn't know an answer, it will ask for input to learn.  
 
